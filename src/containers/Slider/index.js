@@ -36,7 +36,6 @@ const Slider = () => {
                 <h3>{event.title}</h3>
                 <p>{event.description}</p>
                 <div>{getMonth(new Date(event.date))}</div>
-                {console.log(getMonth(new Date(event.date)))}
               </div>
             </div>
           </div>
