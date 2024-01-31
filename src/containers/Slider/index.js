@@ -36,15 +36,16 @@ const Slider = () => {
                 <h3>{event.title}</h3>
                 <p>{event.description}</p>
                 <div>{getMonth(new Date(event.date))}</div>
+                {console.log(getMonth(new Date(event.date)))}
               </div>
             </div>
           </div>
 
           <div className="SlideCard__paginationContainer">
             <div className="SlideCard__pagination">
-              {byDateDesc.map((_, radioIdx) => (
+              {byDateDesc.map((e, radioIdx) => (
                 <input
-                  key={`${event.title}-Radio`} // Nouvelle key titre-radio
+                  key={`${e.title}-Radio`} // Nouvelle key titre-radio + (Changement du _ en e par convention car il est finalement utilisé)
                   type="radio"
                   name="radio-button"
                   checked={index === radioIdx} // Remplacement de idx par index
@@ -53,7 +54,6 @@ const Slider = () => {
               ))}
             </div>
           </div>
-          <p>AAAAAAAAAAAAAAAAAAAAAAAAAAAA£{event.date}</p>
         </React.Fragment>
       ))}
     </div>
