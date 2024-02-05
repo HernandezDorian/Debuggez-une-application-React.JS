@@ -26,11 +26,14 @@ const EventList = () => {
       }
       return false;
     });
+  const totalEvents = type
+    ? data.events.filter((event) => event.type === type).length
+    : data?.events.length || 0; // On définit total event pour avoir le nombre d'event sans le tri par page afin de ne pas fausser le calcul
   const changeType = (evtType) => {
     setCurrentPage(1);
     setType(evtType);
   };
-  const pageNumber = Math.floor((filteredEvents?.length || 0) / PER_PAGE) + 1;
+  const pageNumber = Math.floor(totalEvents / PER_PAGE); // On refait le calcul avec le totalEvent
   const typeList = new Set(data?.events.map((event) => event.type));
   return (
     <>
